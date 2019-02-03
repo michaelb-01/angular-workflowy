@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 var ObjectId = mongoose.Schema.Types.ObjectId;
 
-let Item = new Schema({
+let Item = new mongoose.Schema({
     parentId: ObjectId,
     text: String
 });

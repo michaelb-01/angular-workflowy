@@ -1,1 +1,5 @@
-<div>{{title}} is working</div>
+Comment list
+
+<input autofocus (keydown.enter)="addItem($event, item)" [(ngModel)]="item">
+
+<app-items [items]="_itemService.items" [index]="''"></app-items>

@@ -1,0 +1,17 @@
+<div *ngFor="let item of items; let i = index">
+	<ul>
+		<li>
+			<div>
+				<span class="bullet" (mouseenter)="item.hovering=true" (mouseleave)="item.hovering=false"></span>
+
+				<div *ngIf="!editing">
+					{{item.text}}
+				</div>
+
+				<input *ngIf="editing" autofocus (keydown)="onKeyDown($event, item, i)" [(ngModel)]="item.text">
+			</div>
+
+			<app-items [items]="item.items" [index]="inc(i)" *ngIf="item.items && item.expanded"></app-items>
+		</li>
+	</ul>
+</div>
