@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Input, ViewChild, ElementRef } from '@angular/core';
 
 import { ItemService } from '../item.service';
 
@@ -7,9 +7,11 @@ import { ItemService } from '../item.service';
   templateUrl: './items.component.html',
   styleUrls: ['./items.component.scss']
 })
-export class ItemsComponent implements OnInit {
+export class ItemsComponent implements OnInit, AfterViewInit {
 	@Input() items;
 	@Input() index;
+
+  @ViewChild('myinput') myinput: ElementRef;
 
 	editing = true;
 	hovering = false;
@@ -17,6 +19,14 @@ export class ItemsComponent implements OnInit {
   constructor(private _itemService: ItemService) { }
 
   ngOnInit() {
+    console.log('init');
+  }
+
+  ngAfterViewInit() {
+    console.log('set focus: ' + this.index);
+    if (this.myinput) {
+      this.myinput.nativeElement.focus();
+    }
   }
 
   inc(i) {

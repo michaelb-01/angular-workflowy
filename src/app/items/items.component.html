@@ -2,13 +2,13 @@
 	<ul>
 		<li>
 			<div>
-				<span class="bullet" (mouseenter)="item.hovering=true" (mouseleave)="item.hovering=false"></span>
+				<span class="bullet" (mouseenter)="item.hovering=true" (mouseleave)="item.hovering=false" (click)="item.expanded = !item.expanded"></span>
 
 				<div *ngIf="!editing">
 					{{item.text}}
 				</div>
 
-				<input *ngIf="editing" autofocus (keydown)="onKeyDown($event, item, i)" [(ngModel)]="item.text">
+				<input #myinput autofocus (keydown)="onKeyDown($event, item, i)" [(ngModel)]="item.text">
 			</div>
 
 			<app-items [items]="item.items" [index]="inc(i)" *ngIf="item.items && item.expanded"></app-items>

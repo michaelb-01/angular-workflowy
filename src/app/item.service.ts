@@ -5,9 +5,9 @@ import { Injectable } from '@angular/core';
 })
 export class ItemService {
 
-	items2 = [];
+	items = [];
 
-	items = [
+	items2 = [
 		{
 			text: "1",
 			expanded: true,
@@ -77,7 +77,7 @@ export class ItemService {
 				},
 		        { 
 		        	text: "1.2",
-		        	expanded: false,
+		        	expanded: true,
 		          	items: [ 
 			          	{ 
 			          		expanded: true,
@@ -89,7 +89,7 @@ export class ItemService {
 		},
 		{
 			text: "2",
-			expanded: false,
+			expanded: true,
 			items: [
 				{ 
 					text: "2.1",
@@ -109,7 +109,7 @@ export class ItemService {
 
   addFirstComment() {
   	let newItem = {
-  		expanded: false,
+  		expanded: true,
   		text: '',
   		items: []
   	}
@@ -143,7 +143,7 @@ export class ItemService {
   	}
 
 	let newItem = {
-		expanded: false,
+		expanded: true,
 		text: '',
 		items: []
 	};
